@@ -1,14 +1,10 @@
 FROM node:22-alpine
 
-WORKDIR /usr/src/app
+# Crear un directorio de trabajo
+WORKDIR /app
 
-COPY package*.json ./
+# Copiar únicamente tu archivo index.js
+COPY index.js .
 
-RUN npm install
-
-# Copiar el resto del código de la aplicación
-COPY . .
-
-EXPOSE 3000
-
+# Ejecutar el archivo
 CMD ["node", "index.js"]
